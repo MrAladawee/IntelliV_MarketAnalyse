@@ -1,0 +1,12 @@
+telethon
+requests
+pandas
+numpy
+torch
+joblib
+transformers
+scikit-learn
+beautifulsoup4
+filelock
+urllib3
+schedule
