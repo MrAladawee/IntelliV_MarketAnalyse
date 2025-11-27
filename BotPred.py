@@ -78,23 +78,23 @@ def safe_get(url, **kwargs):
         return None
 
 # ================ Model & scalers ================
-SCALER_X_PATH = os.path.join("..", "scaler_X.pkl")
-SCALER_Y_PATH = os.path.join("..", "scaler_y.pkl")
-MODEL_PATH    = os.path.join("..", "clean_news_30d_LSTM.pth")
+SCALER_X_PATH = os.path.join("scaler_X.pkl")
+SCALER_Y_PATH = os.path.join("scaler_y.pkl")
+MODEL_PATH    = os.path.join("clean_news_30d_LSTM.pth")
 
-MODEL_NAME    = "DeepPavlov/rubert-base-cased"
-#MODEL_NAME = "./models/rubert"
+#MODEL_NAME    = "DeepPavlov/rubert-base-cased"
+MODEL_NAME = "models/rubert"
 
 DEVICE        = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 scaler_X   = joblib.load(SCALER_X_PATH)
 scaler_y   = joblib.load(SCALER_Y_PATH)
 
-tokenizer  = AutoTokenizer.from_pretrained(MODEL_NAME)
-bert_model = AutoModel.from_pretrained(MODEL_NAME)
+#tokenizer  = AutoTokenizer.from_pretrained(MODEL_NAME)
+#bert_model = AutoModel.from_pretrained(MODEL_NAME)
 
-#tokenizer  = AutoTokenizer.from_pretrained(MODEL_NAME, local_files_only=True)
-#bert_model = AutoModel.from_pretrained(MODEL_NAME, local_files_only=True)
+tokenizer  = AutoTokenizer.from_pretrained(MODEL_NAME, local_files_only=True)
+bert_model = AutoModel.from_pretrained(MODEL_NAME, local_files_only=True)
 
 class MultiModalModel(nn.Module):
     def __init__(self, bert_model, seq_len, lstm_hidden_dim=64):
@@ -525,4 +525,5 @@ def main():
         time.sleep(CHECK_INTERVAL)
 
 if __name__ == "__main__":
+
     main()
