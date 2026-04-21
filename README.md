@@ -1,14 +1,42 @@
-# IntelliV_MarketAnalyse
+# **IntelliV_MarketAnalyse**
 
-Also need private files:
+Для корректной работоспособности необходимы следующие файлы:
 
-config.py
+_config.py_
 
-MODEL_NAME.pth
+_MODEL_NAME.pth_
 
-DeepPavlov_rubert model local
+_DeepPavlov_rubert model local_
 
-scaler_X.pkl
-scaler_Y.pkl
+_scaler_X.pkl
+scaler_Y.pkl_
 
-PHONE.session
+_PHONE.session_
+
+## Описание
+
+data_ticker - содержит датасет по обрабатываемым тикерам. В него входит набор *.csv файлов со следующими фичами:
+
+| TRADEDATE  | CLOSE |
+| ------------- | ------------- |
+| YY-mm-dd  |  FLOAT  |
+
+где TRADEDATE - дата торговой сессии; CLOSE - стоимость закрытия актива
+
+photo_ticker - изображение логотипа тикера, который отправляется в сообщении телеграм-ботом
+
+prod_data, prod_data_MT - данные, собранные за время работы модели (получение новостей + их обработка)
+
+img.jpg - заглушка, если не будет необходимой фотографии в photo_ticker
+
+test.py - попытка реализации парсинга телеграм канала MarketTwist (неудачно, или удачно, не помню)
+
+BotPred.py - рабочий скрипт на парсинг со SmartLab
+
+launcher.py - запуск двух сессий парсинга: MarketTwist; SmartLab + запуск общего парсинга цен в 03:00 за предыдущие торговые сессии, которых нет в датасете
+
+model.ipynb - обучение самой модели + её апробация
+
+parse_news.ipynb - сбор датасета с фильтрацией
+
+requirements.txt - необходимые библиотеки проекта
