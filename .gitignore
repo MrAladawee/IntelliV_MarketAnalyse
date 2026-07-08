@@ -1,0 +1,38 @@
+# Configs / secrets
+config.py
+
+# Model weights
+MODEL_NAME.pth
+*.pth
+
+# RuBERT local model
+DeepPavlov_rubert model local/
+models/rubert/
+
+# Scalers
+scaler_X.pkl
+scaler_Y.pkl
+scaler_y.pkl
+*.pkl
+
+# Telegram session
+PHONE.session
+PHONE.session-journal
+*.session
+*.session-journal
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
